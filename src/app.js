@@ -6,6 +6,13 @@ import { Validator } from './validator.js';
 import { Footer } from './components/footer';
 import queryString from 'query-string';
 
+// Standard-Modell setzen, falls noch keines in der URL angegeben ist.
+if (!window.location.hash || !window.location.hash.includes('model=')) {
+  // Pfad relativ zu /public
+  window.location.hash = '#model=/models/NeuerBecher1.glb';
+}
+
+
 window.THREE = THREE;
 window.VIEWER = {};
 
@@ -55,11 +62,15 @@ class App {
 	/**
 	 * Sets up the drag-and-drop controller.
 	 */
-	createDropzone() {
-		const dropCtrl = new SimpleDropzone(this.dropEl, this.inputEl);
-		dropCtrl.on('drop', ({ files }) => this.load(files));
-		dropCtrl.on('dropstart', () => this.showSpinner());
-		dropCtrl.on('droperror', () => this.hideSpinner());
+	/*
+createDropzone () {
+  const dropCtrl = new SimpleDropzone(this.dropEl, this.inputEl);
+  dropCtrl.on('drop', ({ files }) => this.load(files));
+  dropCtrl.on('dropstart', () => this.showSpinner());
+  dropCtrl.on('droperror', () => this.hideSpinner());
+}
+*/
+
 	}
 
 	/**
