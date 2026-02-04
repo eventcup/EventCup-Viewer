@@ -11,10 +11,10 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
 
-    <!-- Favicon im Repo-Root (optional, aber ohne führenden Slash) -->
+    <!-- Favicon im Repo-Root (optional) -->
     <link rel="shortcut icon" href="favicon.ico" />
 
-    <!-- Gebautes CSS & JS: ohne führenden Slash -->
+    <!-- Gebautes CSS & JS aus dist/assets – OHNE führenden Slash -->
     <link rel="stylesheet" crossorigin href="assets/index-n434g2GS.css" />
     <script type="module" crossorigin src="assets/index-CVlV-KJI.js"></script>
   </head>
@@ -22,14 +22,27 @@
   <body>
     <!-- Container für den Viewer -->
     <main class="wrap">
-      <!-- Diese Dropzone wird vom Viewer benutzt, aber nicht mehr als Upload angezeigt -->
       <div class="dropzone"></div>
-
-      <!-- Spinner kann bleiben, wird aktuell nicht wirklich genutzt -->
       <div class="spinner"></div>
     </main>
 
     <!-- Logo unten links -->
     <img src="assets/logo-Dnky1l34.png" alt="Logo" class="corner-logo" />
+
+    <!-- 💡 HIER: GLB fest laden -->
+    <script>
+      window.addEventListener('load', () => {
+        try {
+          if (window.VIEWER && window.VIEWER.app) {
+            // GLB liegt unter public/models/NeuerBecher1.glb im Repo
+            window.VIEWER.app.view('public/models/NeuerBecher1.glb', '', new Map());
+          } else {
+            console.error('Viewer-App nicht gefunden (window.VIEWER.app fehlt)');
+          }
+        } catch (e) {
+          console.error('Fehler beim Laden des Modells:', e);
+        }
+      });
+    </script>
   </body>
 </html>
