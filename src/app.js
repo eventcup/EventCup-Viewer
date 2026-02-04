@@ -21,12 +21,14 @@ class App {
   constructor(el, location) {
     const hash = location.hash ? queryString.parse(location.hash) : {};
 
-    this.options = {
-      kiosk: Boolean(hash.kiosk),
-      // Unser fest eingebautes Modell – URL relativ zum public-Ordner
-      model: '/models/NeuerBecher1.glb',
-      preset: hash.preset || '',
-      cameraPosition: hash.cameraPosition ? hash.cameraPosition.split(',').map(Number) : null,
+   this.options = {
+  kiosk: Boolean(hash.kiosk),
+  // richtiger Pfad relativ zur index.html:
+  model: 'public/models/NeuerBecher1.glb',
+  preset: hash.preset || '',
+  cameraPosition: hash.cameraPosition ? hash.cameraPosition.split(',').map(Number) : null,
+};
+
     };
 
     this.el = el;
