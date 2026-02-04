@@ -18,17 +18,15 @@ class App {
    * @param  {Element} el
    * @param  {Location} location
    */
-  constructor(el, location) {
+    constructor(el, location) {
     const hash = location.hash ? queryString.parse(location.hash) : {};
 
-   this.options = {
-  kiosk: Boolean(hash.kiosk),
-  // richtiger Pfad relativ zur index.html:
-  model: 'public/models/NeuerBecher1.glb',
-  preset: hash.preset || '',
-  cameraPosition: hash.cameraPosition ? hash.cameraPosition.split(',').map(Number) : null,
-};
-
+    this.options = {
+      kiosk: Boolean(hash.kiosk),
+      // fester Pfad zu deinem Modell im Ordner public/models
+      model: 'public/models/NeuerBecher1.glb',
+      preset: hash.preset || '',
+      cameraPosition: hash.cameraPosition ? hash.cameraPosition.split(',').map(Number) : null,
     };
 
     this.el = el;
@@ -43,12 +41,13 @@ class App {
       this.hideSpinner();
     }
 
-    // Header gibt es nicht mehr – kein Kiosk-Hack nötig,
-    // aber wir lassen die Option stehen, falls du sie später nutzen willst.
+    // Drag & Drop NICHT mehr verwenden – Aufruf weglassen:
+    // this.createDropzone();
 
     // Direkt beim Start unser Modell laden
     if (this.options.model) {
       this.view(this.options.model, '', new Map());
+    
     }
   }
 
