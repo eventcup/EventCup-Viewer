@@ -11,20 +11,21 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
 
-    <!-- Favicon -->
     <link rel="shortcut icon" href="/favicon.ico" />
-
-    <!-- Styles -->
     <link rel="stylesheet" href="style.css" />
 
-    <!-- App -->
-    <script defer type="module" src="/src/app.js"></script>
+    <!-- App-Skript -->
+    <script defer type="module" src="src/app.js"></script>
   </head>
 
   <body>
-    <!-- Viewer Container -->
+    <!-- Container für den Viewer -->
     <main class="wrap">
-      <div class="page" id="app"></div>
+      <!-- Diese Dropzone wird vom Viewer benutzt, aber nicht mehr als Upload angezeigt -->
+      <div class="dropzone"></div>
+
+      <!-- Spinner kann bleiben, wird aktuell nicht wirklich genutzt -->
+      <div class="spinner"></div>
     </main>
 
     <!-- Logo unten links -->
