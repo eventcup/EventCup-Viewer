@@ -316,5 +316,14 @@ footer .separator {
     -webkit-transform: scale(1.0);
     transform: scale(1.0);
     opacity: 0;
+.corner-logo {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  width: 120px;   /* bei Bedarf kleiner machen, z.B. 80px */
+  height: auto;
+  z-index: 9999;
+  pointer-events: none;
+}
   }
 }
